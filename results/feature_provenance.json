@@ -1,0 +1,128 @@
+{
+  "status": "completed",
+  "samples": 6414,
+  "feature_rows": 6414,
+  "feature_dimension": 384,
+  "manifest": "C:\\Users\\jwm-d\\Desktop\\deep learning unit 4\\study_tornado\\data\\runtime_manifest.csv",
+  "manifest_sha256": "616b23496dd53551893f780bb16358985333f5cf3d35e168b80ecc81eb8647aa",
+  "checkpoint": "C:\\Users\\jwm-d\\Desktop\\deep learning unit 4\\study_tornado\\probe\\tornado_detector_baseline.keras",
+  "checkpoint_sha256": "1b698c122baa8b1ef2e218694ba853426f0ef4996c271fe3a0f2d0734e3a3185",
+  "features_script_sha256": "c6eee59e3b5aea6c80417525db97295b86ab5e5a25351dd9bf6c558b566213be",
+  "checkpoint_repository": "tornet-ml/tornado_detector_baseline_v1",
+  "checkpoint_revision": "b4d103aa9b2769d7c9258f84de89f876b0a22787",
+  "upstream_revision": "92d9d97bbd174be2e5cea4896c62208c5be7900d",
+  "source_sha256": {
+    "tornet/models/keras/layers.py": "8c2db4901957f9194b96a8564d1dbeb50baf54370e00386231fc59aadafc4834",
+    "tornet/models/keras/cnn_baseline.py": "c933da1e84e6765f7568660d0607d3f39dc453d56ce7af6662341fb92f532cbd",
+    "tornet/data/preprocess.py": "10c7c333601262abd46fd343e3b5dc5b64323953ca3a4f430e9db864f8627098",
+    "tornet/data/loader.py": "4edc9f6080c1da336211f5580357a6d3617c24b412c24c4c8c19e8eae6a4ce10"
+  },
+  "keras_backend": "torch",
+  "device": "cuda:0",
+  "gpu": "NVIDIA GeForce RTX 5060 Ti",
+  "packages": {
+    "torch": "2.8.0+cu128",
+    "keras": "3.11.3",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "netCDF4": "1.7.2",
+    "xarray": "2025.10.1",
+    "h5py": "3.14.0",
+    "scikit-learn": "1.7.2"
+  },
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "backbone_parameters": 4665409,
+  "backbone_trainable_parameters": 0,
+  "feature_layer": "dropout_11",
+  "pooling": "GlobalMaxPooling2D over spatial axes",
+  "preprocessing": "Raw physical values; embedded Normalize_* and FillNaNs; original r/r_inverse coordinates; original range_folded_mask",
+  "inference": "training=False, all weights frozen, torch.inference_mode, deterministic algorithms, TF32 disabled",
+  "radar_statistics_columns": [
+    "DBZ_p95",
+    "DBZ_fraction_ge40",
+    "VEL_p95_minus_p05",
+    "RHOHV_p05",
+    "ZDR_median",
+    "KDP_p95",
+    "WIDTH_p95",
+    "radar_range_midpoint_m"
+  ],
+  "statistics_mask": "Exclude non-finite values and any cell whose range-fold mask is nonzero across the corresponding tilt",
+  "statistics_range": "Mean of physical range_limits in meters",
+  "original_cnn_scores": "Sigmoid of original model current-frame raw logit; no test metrics inspected",
+  "row_alignment": "Exact runtime_manifest filename order; features_sample_ids.json stores row identifiers",
+  "raw_data_hashes_verified": 6414,
+  "qa": {
+    "training_sample": "C:\\Users\\jwm-d\\Desktop\\deep learning unit 4\\study_tornado\\data\\netcdf\\test\\2014\\NUL_140227_195751_KICX_503723s_T3.nc",
+    "reference": "Public read_file + add_coordinates + original CNN",
+    "input_max_absolute_differences": {
+      "DBZ": 0.0,
+      "VEL": 0.0,
+      "KDP": 0.0,
+      "RHOHV": 0.0,
+      "ZDR": 0.0,
+      "WIDTH": 0.0,
+      "range_folded_mask": 0.0,
+      "coordinates": 0.0
+    },
+    "original_vs_joint_extractor_logit_difference": 0.0,
+    "batch_vs_single_logit_difference": 0.0,
+    "repeat_feature_exactly_equal": true,
+    "feature_shape": [
+      1,
+      384
+    ],
+    "original_train_sample_logit": -6.4866533279418945,
+    "note": "Reference input only; its historical terminal-label override is not used as a study target."
+  },
+  "batch_size_clips": 16,
+  "batch_size_frames": 32,
+  "development_attempts": [
+    {
+      "attempt": "First synthetic runtime smoke",
+      "result": "Failed with AttributeError: list has no attribute detach",
+      "reason": "The serialized checkpoint's model.output is a singleton list; nesting it in joint outputs produced a nested logit result",
+      "repair": "Use model.outputs[0] for the joint feature/logit model and unwrap the original model's singleton output in QA",
+      "verification": "Repaired synthetic shape test and public-input real-NetCDF reference inference both passed"
+    }
+  ],
+  "total_elapsed_seconds": 200.99046969995834,
+  "extraction_seconds": 199.92299069999717,
+  "mean_batch_seconds": 0.49832427880187935,
+  "batches": 401,
+  "peak_gpu_allocated_bytes": 2613390336,
+  "files": {
+    "features_current.npy": {
+      "shape": [
+        6414,
+        384
+      ],
+      "dtype": "float32",
+      "sha256": "ea1679c2d4d503b36a1d17b08596f16b7fdee3b78df1b496760dc0df88df4eac"
+    },
+    "features_previous.npy": {
+      "shape": [
+        6414,
+        384
+      ],
+      "dtype": "float32",
+      "sha256": "0c50ef47e42de58efab5f31393d0c4ae82ba1ea388b4bddcc66ec9e661dd73f0"
+    },
+    "original_cnn_scores.npy": {
+      "shape": [
+        6414
+      ],
+      "dtype": "float32",
+      "sha256": "f2fca175b0e3c51398dec6f3a9d7d5284aede0a48fc917a8e0c69941add0b81e"
+    },
+    "radar_statistics.npy": {
+      "shape": [
+        6414,
+        8
+      ],
+      "dtype": "float32",
+      "sha256": "4062e9dfd749ce93f3b94d2833f0d627f26687ef692701f69c4ccf0f87b95d7b"
+    }
+  },
+  "sample_ids_sha256": "d4934c5811e7059be8991f9721acfec286f8f02fe01a194a45668e2dd71870b3"
+}

@@ -1,0 +1,14 @@
+{
+  "started_at_utc": "2026-10-09T22:28:28.689407+00:00",
+  "decision_sha256": "164850e7bee0d72a36803aee1c80e2e01eed3277a4c998d50aebaceb31b808f0",
+  "models": [
+    "history",
+    "majority",
+    "original_cnn",
+    "radar_statistics",
+    "baseline"
+  ],
+  "policy": "Apply locked decision; save predictions once",
+  "predictions_sha256": "c1fe6428b596bf37517ffa8c8c70897a08a8cf7594d4599debbe9fe54ec9e669",
+  "predictions_committed_at_utc": "2026-10-09T22:28:28.744550+00:00"
+}

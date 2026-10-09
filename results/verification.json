@@ -1,0 +1,47 @@
+{
+  "status": "passed",
+  "verified_at_utc": "2026-10-09T22:33:41.736019+00:00",
+  "real_runs": 12,
+  "shared_input_fingerprint": "63c7a1907bdf0e1940f70c3f8188319cbf203911e2daf174738803ddfdb78a75",
+  "selected_configuration": "history",
+  "checked_test_models": [
+    "history",
+    "majority",
+    "original_cnn",
+    "radar_statistics",
+    "baseline"
+  ],
+  "test_clips": 1422,
+  "test_storm_groups": 10,
+  "validation_threshold_checks": {
+    "history": {
+      "threshold": 0.29674825072288513,
+      "validation_recall": 0.8022598870056498
+    },
+    "original_cnn": {
+      "threshold": 0.037115760147571564,
+      "validation_recall": 0.8022598870056498
+    },
+    "radar_statistics": {
+      "threshold": 0.34762346645069836,
+      "validation_recall": 0.8022598870056498
+    },
+    "baseline": {
+      "threshold": 0.3165431320667267,
+      "validation_recall": 0.8022598870056498
+    }
+  },
+  "checks": [
+    "Passed real physical-data and feature QA receipts",
+    "Exact twelve-run shared input fingerprint",
+    "All checkpoint and learning-curve hashes",
+    "Thirty-epoch budgets and earliest validation maxima",
+    "Validation-only configuration selection and threshold maximality with ties",
+    "Independent sklearn final/per-group metric recomputation from saved predictions",
+    "Final test contains only predeclared winner and references",
+    "Cached final replay produces no predictions or changes"
+  ],
+  "decision_sha256": "164850e7bee0d72a36803aee1c80e2e01eed3277a4c998d50aebaceb31b808f0",
+  "predictions_sha256": "c1fe6428b596bf37517ffa8c8c70897a08a8cf7594d4599debbe9fe54ec9e669",
+  "verification_script_sha256": "060b734c7cddd44b5e3f97f9bd97e19b85ba1a395da5aa3e8eb577569480eb6c"
+}

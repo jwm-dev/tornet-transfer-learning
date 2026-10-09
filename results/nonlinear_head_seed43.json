@@ -1,0 +1,18 @@
+{
+  "configuration": "nonlinear_head",
+  "seed": 43,
+  "status": "completed",
+  "best_epoch": 1,
+  "validation_average_precision": 0.675873304448669,
+  "train_average_precision_at_selected_epoch": 0.7084596261837374,
+  "weighted_train_bce_at_selected_epoch": 0.4227021634578705,
+  "unweighted_validation_bce_at_selected_epoch": 0.366407185792923,
+  "final_epoch_validation_average_precision": 0.6195572175097434,
+  "final_epoch_train_average_precision": 0.7814089057682962,
+  "parameters": 24705,
+  "runtime_seconds": 1.2120194998569787,
+  "checkpoint": "models/nonlinear_head_seed43.pt",
+  "input_fingerprint": "63c7a1907bdf0e1940f70c3f8188319cbf203911e2daf174738803ddfdb78a75",
+  "checkpoint_sha256": "72b91bff440a9c1cbee02d56134eb6ce42c5b7c9cc3fff92bab61a76b63407b7",
+  "curve_sha256": "a0d2f4e80dbf6cf6bc144560021799d44ef31b5d0c8c3afb63c8674f0a4eb6ac"
+}

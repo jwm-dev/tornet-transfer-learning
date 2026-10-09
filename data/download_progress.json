@@ -1,0 +1,17 @@
+{
+  "updated_at": "2026-10-09T22:10:52.804355+00:00",
+  "progress": {
+    "2014": {
+      "downloaded_bytes": 15066513529,
+      "official_bytes": 15066513529,
+      "percent": 100.0,
+      "checksum_verified": true
+    },
+    "2015": {
+      "downloaded_bytes": 17395624045,
+      "official_bytes": 17395624045,
+      "percent": 100.0,
+      "checksum_verified": true
+    }
+  }
+}

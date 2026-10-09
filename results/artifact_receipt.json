@@ -1,0 +1,15 @@
+{
+  "status": "complete",
+  "notebook": {
+    "code_cells": 8,
+    "all_code_cells_executed": true,
+    "sha256": "004deb5c3f9edc747cd1e0bbe9e04d7f0af7e8c0c2672ee6a3e3b1203dee331d"
+  },
+  "report": "C:\\Users\\jwm-d\\Desktop\\deep learning unit 4\\study_tornado\\output\\pdf\\tornet_report.pdf",
+  "report_sha256": "0fca143bc351d7823d7f3b8f4152654a5abfe88b9f136bbccb3e5e2ef5548353",
+  "decision_sha256": "164850e7bee0d72a36803aee1c80e2e01eed3277a4c998d50aebaceb31b808f0",
+  "predictions_sha256": "c1fe6428b596bf37517ffa8c8c70897a08a8cf7594d4599debbe9fe54ec9e669",
+  "example_figure_sha256": "233712f4fd875fd251ad4f2325ad8ff6c2b98af9ede72c5360ce98cdc1687932",
+  "report_example_figure_sha256": "3d71653adf661162df1a68478e612f3d5ca86b9ead695d30a859ad6f44f58b20",
+  "example_cases_sha256": "27e53475bb23d2685665836161c4f6fad707d955fe2b0fe9b35e675af38d9fcc"
+}

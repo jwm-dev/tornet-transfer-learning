@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2014,
+    "endpoint": "metadata_api",
+    "range_start": 12000000000,
+    "range_end": 12008388607,
+    "url": "https://zenodo.org/api/records/12637032/files/tornet_2014.tar.gz/content",
+    "http_status": 206,
+    "header_latency_seconds": 1.327999999979511,
+    "content_range": "bytes 12000000000-12008388607/15066513529",
+    "x_source": "files-primary",
+    "remaining_requests": "118",
+    "received_bytes": 8388608,
+    "elapsed_seconds": 14.547000000020489,
+    "mb_per_second": 0.5766555303490881
+  },
+  {
+    "year": 2014,
+    "endpoint": "record_download",
+    "range_start": 12016777216,
+    "range_end": 12025165823,
+    "url": "https://zenodo.org/records/12637032/files/tornet_2014.tar.gz?download=1",
+    "http_status": 206,
+    "header_latency_seconds": 2.077999999979511,
+    "content_range": "bytes 12016777216-12025165823/15066513529",
+    "x_source": "files-primary",
+    "remaining_requests": "117",
+    "received_bytes": 8388608,
+    "elapsed_seconds": 18.859000000171363,
+    "mb_per_second": 0.44480661752604994
+  },
+  {
+    "year": 2015,
+    "endpoint": "metadata_api",
+    "range_start": 12000000000,
+    "range_end": 12008388607,
+    "url": "https://zenodo.org/api/records/12655151/files/tornet_2015.tar.gz/content",
+    "http_status": 206,
+    "header_latency_seconds": 1.047000000020489,
+    "content_range": "bytes 12000000000-12008388607/17395624045",
+    "x_source": "files-primary",
+    "remaining_requests": "118",
+    "received_bytes": 8388608,
+    "elapsed_seconds": 8.719000000040978,
+    "mb_per_second": 0.9621066636036901
+  },
+  {
+    "year": 2015,
+    "endpoint": "record_download",
+    "range_start": 12016777216,
+    "range_end": 12025165823,
+    "url": "https://zenodo.org/records/12655151/files/tornet_2015.tar.gz?download=1",
+    "http_status": 206,
+    "header_latency_seconds": 1.1880000000819564,
+    "content_range": "bytes 12016777216-12025165823/17395624045",
+    "x_source": "files-primary",
+    "remaining_requests": "118",
+    "received_bytes": 8388608,
+    "elapsed_seconds": 9.719000000040978,
+    "mb_per_second": 0.863114312168395
+  }
+]

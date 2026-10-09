@@ -1,0 +1,108 @@
+{
+  "created": "2024-07-03T18:47:09.093100+00:00",
+  "modified": "2024-07-03T18:47:09.443148+00:00",
+  "id": 12637032,
+  "conceptrecid": "10558838",
+  "doi": "10.5281/zenodo.12637032",
+  "conceptdoi": "10.5281/zenodo.10558838",
+  "doi_url": "https://doi.org/10.5281/zenodo.12637032",
+  "metadata": {
+    "title": "TorNet 2014",
+    "doi": "10.5281/zenodo.12637032",
+    "publication_date": "2024-07-03",
+    "description": "<p>TorNet samples from 2014 as described in &ldquo;A Benchmark Dataset for Tornado Detection and Prediction using Full-Resolution Polarimetric Weather Radar Data&rdquo;</p>\n<p>For more detail, visit&nbsp;<a href=\"https://github.com/mit-ll/tornet\">https://github.com/mit-ll/tornet</a></p>\n<p>&nbsp;</p>\n<p>DISTRIBUTION STATEMENT A. Approved for public release. Distribution is unlimited.</p>\n<p>&nbsp;</p>\n<p>This material is based upon work supported by the Department of the Air Force under Air Force Contract No. FA8702-15-D-0001. Any opinions, findings, conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the Department of the Air Force.</p>\n<p>&nbsp;</p>\n<p>&copy; 2022 Massachusetts Institute of Technology.</p>\n<p>&nbsp;</p>\n<p>Delivered to the U.S. Government with Unlimited Rights, as defined in DFARS Part 252.227-7013 or 7014 (Feb 2014). Notwithstanding any copyright notice, U.S. Government rights in this work are defined by DFARS 252.227-7013 or DFARS 252.227-7014 as detailed above. Use of this work other than as specifically authorized by the U.S. Government may violate any copyrights that exist in this work.</p>",
+    "access_right": "open",
+    "creators": [
+      {
+        "name": "Veillette, Mark",
+        "affiliation": "MIT Lincoln Laboratory"
+      }
+    ],
+    "version": "1.1",
+    "resource_type": {
+      "title": "Dataset",
+      "type": "dataset"
+    },
+    "license": {
+      "id": "cc-by-4.0"
+    },
+    "relations": {
+      "version": [
+        {
+          "index": 1,
+          "is_last": true,
+          "parent": {
+            "pid_type": "recid",
+            "pid_value": "10558838"
+          }
+        }
+      ]
+    }
+  },
+  "title": "TorNet 2014",
+  "links": {
+    "self": "https://zenodo.org/api/records/12637032",
+    "self_html": "https://zenodo.org/records/12637032",
+    "preview_html": "https://zenodo.org/records/12637032?preview=1",
+    "doi": "https://doi.org/10.5281/zenodo.12637032",
+    "self_doi": "https://doi.org/10.5281/zenodo.12637032",
+    "self_doi_html": "https://zenodo.org/doi/10.5281/zenodo.12637032",
+    "reserve_doi": "https://zenodo.org/api/records/12637032/draft/pids/doi",
+    "parent": "https://zenodo.org/api/records/10558838",
+    "parent_html": "https://zenodo.org/records/10558838",
+    "parent_doi": "https://doi.org/10.5281/zenodo.10558838",
+    "parent_doi_html": "https://zenodo.org/doi/10.5281/zenodo.10558838",
+    "self_iiif_manifest": "https://zenodo.org/api/iiif/record:12637032/manifest",
+    "self_iiif_sequence": "https://zenodo.org/api/iiif/record:12637032/sequence/default",
+    "files": "https://zenodo.org/api/records/12637032/files",
+    "media_files": "https://zenodo.org/api/records/12637032/media-files",
+    "latest": "https://zenodo.org/api/records/12637032/versions/latest",
+    "latest_html": "https://zenodo.org/records/12637032/latest",
+    "versions": "https://zenodo.org/api/records/12637032/versions",
+    "draft": "https://zenodo.org/api/records/12637032/draft",
+    "access_links": "https://zenodo.org/api/records/12637032/access/links",
+    "access_grants": "https://zenodo.org/api/records/12637032/access/grants",
+    "access_users": "https://zenodo.org/api/records/12637032/access/users",
+    "access_request": "https://zenodo.org/api/records/12637032/access/request",
+    "access": "https://zenodo.org/api/records/12637032/access",
+    "communities": "https://zenodo.org/api/records/12637032/communities",
+    "communities-suggestions": "https://zenodo.org/api/records/12637032/communities-suggestions",
+    "request_deletion": "https://zenodo.org/api/records/12637032/request-deletion",
+    "file_modification": "https://zenodo.org/api/records/12637032/file-modification",
+    "quota_increase": "https://zenodo.org/api/records/12637032/quota-increase",
+    "requests": "https://zenodo.org/api/records/12637032/requests"
+  },
+  "updated": "2024-07-03T18:47:09.443148+00:00",
+  "recid": "12637032",
+  "revision": 4,
+  "files": [
+    {
+      "id": "6542d13c-85d3-4952-a9ca-8322f8090e85",
+      "key": "tornet_2014.tar.gz",
+      "size": 15066513529,
+      "checksum": "md5:db8bbdf9939153209f7b3d7cfe60dd7d",
+      "links": {
+        "self": "https://zenodo.org/api/records/12637032/files/tornet_2014.tar.gz/content"
+      }
+    }
+  ],
+  "swh": {},
+  "owners": [
+    {
+      "id": "600821"
+    }
+  ],
+  "status": "published",
+  "stats": {
+    "downloads": 4598,
+    "unique_downloads": 999,
+    "views": 783,
+    "unique_views": 732,
+    "version_downloads": 1272,
+    "version_unique_downloads": 304,
+    "version_unique_views": 493,
+    "version_views": 520
+  },
+  "state": "done",
+  "submitted": true
+}

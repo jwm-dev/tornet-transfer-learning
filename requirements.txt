@@ -1,0 +1,19 @@
+# Recreate an independent Python 3.11 environment; use CUDA torch for GPU inference.
+# The live study uses shared_runtime.pth solely to reuse already installed packages.
+torch==2.8.0
+keras==3.11.3
+numpy==2.2.6
+pandas==2.3.3
+scikit-learn==1.7.2
+h5py==3.14.0
+netCDF4==1.7.2
+xarray==2025.10.1
+matplotlib==3.10.7
+nbformat
+nbclient
+ipykernel
+requests==2.32.5
+reportlab==5.0.1
+pypdf==6.20.0
+Pillow==11.3.0
+joblib==1.6.0

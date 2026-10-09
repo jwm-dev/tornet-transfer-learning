@@ -1,0 +1,18 @@
+{
+  "configuration": "history",
+  "seed": 43,
+  "status": "completed",
+  "best_epoch": 5,
+  "validation_average_precision": 0.6763587708916277,
+  "train_average_precision_at_selected_epoch": 0.7282526784059987,
+  "weighted_train_bce_at_selected_epoch": 0.40675249695777893,
+  "unweighted_validation_bce_at_selected_epoch": 0.4112846255302429,
+  "final_epoch_validation_average_precision": 0.6561794624947708,
+  "final_epoch_train_average_precision": 0.753088310857956,
+  "parameters": 385,
+  "runtime_seconds": 0.7642848000396043,
+  "checkpoint": "models/history_seed43.pt",
+  "input_fingerprint": "63c7a1907bdf0e1940f70c3f8188319cbf203911e2daf174738803ddfdb78a75",
+  "checkpoint_sha256": "2fbdd35195bf75ebbd36e04a93654b7db9888a1e1246b77831a5bc7510674eb8",
+  "curve_sha256": "d12610974da99a6919bc7d3807721ddccda7211e44bab36714d4de2195ae2ec6"
+}

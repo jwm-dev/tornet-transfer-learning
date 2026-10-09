@@ -1,0 +1,130 @@
+{
+  "dataset_version": "1.1",
+  "catalog_rows": 203133,
+  "selected_years": [
+    2014,
+    2015
+  ],
+  "source_partition": "authors official test",
+  "samples": 6414,
+  "source_pool_before_overlap_filter": 6448,
+  "excluded_source_train_overlap_clips": 33,
+  "excluded_episode_ids": [
+    94849,
+    95184,
+    95212,
+    95566
+  ],
+  "excluded_source_train_proximity_clips": 1,
+  "proximity_evidence_file": "source_proximity_overlap.csv",
+  "episodes": 372,
+  "storm_day_groups": 48,
+  "splits": [
+    {
+      "split": "train",
+      "chips": 3667,
+      "episodes": 203,
+      "storm_day_groups": 28,
+      "largest_group_chips": 481,
+      "years": {
+        "2014": 1517,
+        "2015": 2150
+      },
+      "categories": {
+        "NUL": {
+          "chips": 1896,
+          "episodes": 141,
+          "storm_day_groups": 27
+        },
+        "TOR": {
+          "chips": 438,
+          "episodes": 67,
+          "storm_day_groups": 12
+        },
+        "WRN": {
+          "chips": 1333,
+          "episodes": 35,
+          "storm_day_groups": 12
+        }
+      }
+    },
+    {
+      "split": "val",
+      "chips": 1325,
+      "episodes": 93,
+      "storm_day_groups": 10,
+      "largest_group_chips": 518,
+      "years": {
+        "2014": 484,
+        "2015": 841
+      },
+      "categories": {
+        "NUL": {
+          "chips": 629,
+          "episodes": 53,
+          "storm_day_groups": 9
+        },
+        "TOR": {
+          "chips": 177,
+          "episodes": 41,
+          "storm_day_groups": 8
+        },
+        "WRN": {
+          "chips": 519,
+          "episodes": 16,
+          "storm_day_groups": 4
+        }
+      }
+    },
+    {
+      "split": "test",
+      "chips": 1422,
+      "episodes": 76,
+      "storm_day_groups": 10,
+      "largest_group_chips": 703,
+      "years": {
+        "2014": 545,
+        "2015": 877
+      },
+      "categories": {
+        "NUL": {
+          "chips": 860,
+          "episodes": 53,
+          "storm_day_groups": 8
+        },
+        "TOR": {
+          "chips": 89,
+          "episodes": 29,
+          "storm_day_groups": 8
+        },
+        "WRN": {
+          "chips": 473,
+          "episodes": 13,
+          "storm_day_groups": 6
+        }
+      }
+    }
+  ],
+  "split_search": {
+    "candidate_draws": 100000,
+    "admissible_draws": 477,
+    "chosen_zero_based_draw": 52112,
+    "stratification_objective": 0.019919622784521543,
+    "objective": "0.5*category mean squared relative deviation +0.5*year mean squared relative deviation from 60/20/20 targets"
+  },
+  "catalog_sha256": "6d5516278bd6ab14a405284c25365cb1efa7c2c21144ff1148b3aa2552a9be4b",
+  "manifest_sha256": "1f7546bd463c5bad3fdf5eecef447e795ecc0ec4d8a4c5a72bf539711a1fce7c",
+  "config_sha256": "8177254b35db0e87a0acb09ca56c2f66116379c0ffec2caa91cce70a75ceac6d",
+  "design_script_sha256": "287fc6d3599ef09d2b76cca0942cc28a8c3f6f52c3feb60e3e94cb857702b54e",
+  "proximity_script_sha256": "ea7105fff76d36e356be2b99152f2af1db52a157139712359c7f39fc27550773",
+  "checkpoint_sha256": "1b698c122baa8b1ef2e218694ba853426f0ef4996c271fe3a0f2d0734e3a3185",
+  "design_environment": {
+    "python": "3.11.9",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3"
+  },
+  "label_note": "TOR is a category; actual terminal-frame labels and positive group counts still require NetCDF audit.",
+  "partition_basis": "Authors documented holdout protocol plus episode/event/proximity exclusion; checkpoint has no embedded training provenance. Other episodes on same weather days may have been seen during pretraining.",
+  "grouping": "Complete episodes joined when they share any UTC date from start_time through end_time.",
+  "status": "Catalog and split verified. No new training or final test inference performed."
+}

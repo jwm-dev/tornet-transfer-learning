@@ -1,0 +1,20 @@
+# Local runtimes and transient files
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+tmp/
+.env
+.env.*
+!.env.example
+
+# Large original radar payloads; keep checksum/metadata receipts
+data/netcdf/
+data/archives/*.tar.gz
+data/archives/*.part
+data/archives/*.chunk
+data/archives/*.chunks/
+
+# The repository already includes the unpacked deliverables
+output/*.zip

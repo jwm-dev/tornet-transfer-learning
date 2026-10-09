@@ -1,0 +1,18 @@
+{
+  "configuration": "hard_negatives",
+  "seed": 43,
+  "status": "completed",
+  "best_epoch": 4,
+  "validation_average_precision": 0.660487395816499,
+  "train_average_precision_at_selected_epoch": 0.7121288221510411,
+  "weighted_train_bce_at_selected_epoch": 0.44405999779701233,
+  "unweighted_validation_bce_at_selected_epoch": 0.4124418795108795,
+  "final_epoch_validation_average_precision": 0.6290499699768525,
+  "final_epoch_train_average_precision": 0.7393848010470159,
+  "parameters": 385,
+  "runtime_seconds": 0.8028653000947088,
+  "checkpoint": "models/hard_negatives_seed43.pt",
+  "input_fingerprint": "63c7a1907bdf0e1940f70c3f8188319cbf203911e2daf174738803ddfdb78a75",
+  "checkpoint_sha256": "cbeb797390c12d83fafecc6d439983d4240faed8ebf0a6937bac302b438c810a",
+  "curve_sha256": "4fc2cebaec915230bd6a735b3a05621185d1deca7d44646a1ead5f6217f5f5de"
+}

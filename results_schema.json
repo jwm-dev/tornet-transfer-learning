@@ -1,0 +1,45 @@
+{
+  "root": "study_tornado/results",
+  "api": {
+    "train": "train(study_dir=None, data_dir=None) -> final_decision dictionary; does not evaluate test scores",
+    "test_once": "test_once(study_dir=None, data_dir=None) -> sealed final_test dictionary; later calls return existing result without new predictions",
+    "cli": "python study_tornado/experiments.py train|test [--data-dir path]"
+  },
+  "run_summary.csv": ["configuration", "seed", "status", "best_epoch", "validation_average_precision", "train_average_precision_at_selected_epoch", "weighted_train_bce_at_selected_epoch", "unweighted_validation_bce_at_selected_epoch", "final_epoch_validation_average_precision", "final_epoch_train_average_precision", "parameters", "runtime_seconds", "checkpoint", "input_fingerprint", "checkpoint_sha256", "curve_sha256"],
+  "learning_curves.csv": ["configuration", "seed", "epoch", "optimizer_step_weighted_train_bce", "weighted_train_bce", "unweighted_validation_bce", "train_average_precision", "validation_average_precision"],
+  "experiment_comparison.csv": ["configuration", "order", "parameters", "uses_previous_frame", "mean_validation_ap", "std_validation_ap", "ensemble_validation_ap", "validation_threshold", "validation_precision", "validation_recall", "validation_f1", "validation_warning_negative_fpr", "total_head_training_seconds", "best_epochs", "selected"],
+  "validation_scores.csv": "Validation metadata plus score_CONFIGURATION for all four ensembles and score_original_cnn, score_radar_statistics, score_majority",
+  "final_decision.json": {
+    "selected_configuration": "One of baseline, history, hard_negatives, nonlinear_head",
+    "evaluated_test_models": "Chosen configuration, majority, original_cnn, radar_statistics, baseline; names deduplicated",
+    "thresholds": "Object mapping each evaluated model to its validation-chosen float threshold; majority has null",
+    "majority_prediction": "Integer 0 or 1 chosen from training class counts; ties select 0",
+    "training_seeds": [42, 43, 44],
+    "chosen_best_epochs": "Object mapping seed string to its selected epoch",
+    "validation_metrics": "Object mapping evaluated model name to metric object described below",
+    "data_audit": "Object keyed train/validation/test with clips, positive_clips, storm_groups, positive_storm_groups, warning_negative_clips, warning_negative_storm_groups",
+    "input_fingerprint": "Object with sha256 and hashes of config/manifest/provenance/sample IDs/features/pretrained checkpoint",
+    "model_artifact_hashes": "Paths relative to results mapped to SHA-256",
+    "environment": "Python, platform, package versions, training_device and torch_threads",
+    "training_wall_seconds": "Train/validation wall time excluding input loading and prior feature extraction",
+    "test_score_inspection_before_lock": false
+  },
+  "final_test.json": {
+    "status": "sealed_final_test",
+    "selected_configuration": "Name chosen before any test scores were inspected",
+    "evaluated_models": "List of predeclared tested model names",
+    "metrics": "Object mapping model name to metric object",
+    "test_clips": "Integer",
+    "test_storm_groups": "Integer",
+    "decision_sha256": "SHA-256 of locked final_decision.json",
+    "predictions_sha256": "SHA-256 of saved final_test_predictions.csv",
+    "bootstrap": "1000 paired draws of whole storm groups with seed 42"
+  },
+  "metric_object": ["clips", "positives", "prevalence", "average_precision", "precision", "recall", "f1", "false_positive_rate", "warning_negative_false_positive_rate", "warning_negative_clips", "accuracy", "tn", "fp", "fn", "tp", "threshold"],
+  "final_test_predictions.csv": "All runtime manifest columns for test rows, plus score_MODEL and prediction_MODEL for each evaluated model",
+  "per_group_metrics.csv": "storm_group, model, all metric_object fields",
+  "bootstrap_intervals.csv": ["kind", "model", "metric", "draws", "valid_draws", "ci_lower", "ci_upper", "seed", "resampling_unit"],
+  "bootstrap_kinds": ["model_metric", "SELECTED_CONFIGURATION_minus_reference"],
+  "figures": ["training_validation_ap.png", "training_validation_loss.png", "validation_comparison.png", "validation_precision_recall.png", "final_confusion_matrix.png", "final_precision_recall.png", "final_per_group_ap.png"],
+  "notes": ["Undefined metric values are null in JSON and empty cells in CSV", "AP intervals are undefined for draws without any positive targets", "BCE training loss is weighted; validation BCE is unweighted", "Each adaptation compares directly with baseline; experiments are not cumulative", "No new real-data training result is represented by this schema file"]
+}

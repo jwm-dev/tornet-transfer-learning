@@ -1,0 +1,145 @@
+{
+  "created_at": "2026-10-09T22:15:58.625182+00:00",
+  "status": "failed",
+  "failures": [
+    "val below warning-negative group minimum",
+    "test below warning-negative group minimum"
+  ],
+  "planned_samples": 6414,
+  "valid_samples": 4089,
+  "excluded_samples": 2325,
+  "exclusion_counts": {
+    "netcdf_catalog_event_mismatch|netcdf_catalog_episode_mismatch": 2325
+  },
+  "split_census": {
+    "train": {
+      "samples": 2334,
+      "positive_samples": 438,
+      "negative_samples": 1896,
+      "storm_groups": 28,
+      "positive_storm_groups": 12,
+      "warning_negative_samples": 0,
+      "warning_negative_storm_groups": 0,
+      "categories": {
+        "NUL": 1896,
+        "TOR": 438
+      }
+    },
+    "val": {
+      "samples": 806,
+      "positive_samples": 177,
+      "negative_samples": 629,
+      "storm_groups": 10,
+      "positive_storm_groups": 8,
+      "warning_negative_samples": 0,
+      "warning_negative_storm_groups": 0,
+      "categories": {
+        "NUL": 629,
+        "TOR": 177
+      }
+    },
+    "test": {
+      "samples": 949,
+      "positive_samples": 89,
+      "negative_samples": 860,
+      "storm_groups": 10,
+      "positive_storm_groups": 8,
+      "warning_negative_samples": 0,
+      "warning_negative_storm_groups": 0,
+      "categories": {
+        "NUL": 860,
+        "TOR": 89
+      }
+    }
+  },
+  "label_policy": "Use stored v1.1 terminal frame_labels unchanged",
+  "split_isolation": {
+    "episode_overlap_pairs": [],
+    "event_overlap_pairs": [],
+    "utc_date_overlap_pairs": []
+  },
+  "source_training_weather_date_overlap": {
+    "basis": "Catalog terminal UTC dates only; calendar-date overlap is not sample or necessarily weather-system overlap",
+    "selected_clips_on_source_train_dates": 1667,
+    "selected_clips": 6414,
+    "shared_terminal_dates": 21,
+    "selected_terminal_dates": 79,
+    "implication": "Do not claim all frozen-backbone weather environments are unseen"
+  },
+  "radar_missingness": {
+    "policy": "Retain NaNs and all-missing variable frames; authors FillNaNs handles these values",
+    "by_category": {
+      "NUL": {
+        "samples": 3385,
+        "clips_with_any_all_missing_variable_frame": 2,
+        "all_missing_variable_frame_counts": {
+          "DBZ_current": 1,
+          "VEL_current": 2,
+          "KDP_current": 1,
+          "RHOHV_current": 1,
+          "WIDTH_current": 2,
+          "VEL_previous": 1,
+          "WIDTH_previous": 1
+        }
+      },
+      "TOR": {
+        "samples": 704,
+        "clips_with_any_all_missing_variable_frame": 0,
+        "all_missing_variable_frame_counts": {}
+      },
+      "WRN": {
+        "samples": 0,
+        "clips_with_any_all_missing_variable_frame": 0,
+        "all_missing_variable_frame_counts": {}
+      }
+    }
+  },
+  "terminal_ef_mismatches": 0,
+  "gap_seconds_min": 300.0,
+  "gap_seconds_max": 300.0,
+  "planned_manifest_sha256": "1f7546bd463c5bad3fdf5eecef447e795ecc0ec4d8a4c5a72bf539711a1fce7c",
+  "planned_config_sha256": "8177254b35db0e87a0acb09ca56c2f66116379c0ffec2caa91cce70a75ceac6d",
+  "data_pipeline_sha256": "af737e3c57076fc1d0cbdf09f441f7ae8ecc8daa65b0475ce5f8a03dc9d5a463",
+  "runtime_manifest_sha256": "493f50bb99383a4291842b25cb413fd3916c46e0c526a24cc71c39aaac16ec74",
+  "archives": {
+    "2014": {
+      "record": 12637032,
+      "filename": "tornet_2014.tar.gz",
+      "size": 15066513529,
+      "md5": "db8bbdf9939153209f7b3d7cfe60dd7d",
+      "verified": {
+        "year": 2014,
+        "md5": "db8bbdf9939153209f7b3d7cfe60dd7d",
+        "official_size": 15066513529,
+        "verified_at": "2026-10-09T22:01:44.806241+00:00",
+        "source": "https://zenodo.org/records/12637032/files/tornet_2014.tar.gz?download=1",
+        "download_elapsed_seconds": 3811.6089999999385,
+        "mtime_ns": 1791583227244117900
+      }
+    },
+    "2015": {
+      "record": 12655151,
+      "filename": "tornet_2015.tar.gz",
+      "size": 17395624045,
+      "md5": "7251feab3c571c71fcca8745d8431c7d",
+      "verified": {
+        "year": 2015,
+        "md5": "7251feab3c571c71fcca8745d8431c7d",
+        "official_size": 17395624045,
+        "verified_at": "2026-10-09T22:11:17.257022+00:00",
+        "source": "https://zenodo.org/records/12655151/files/tornet_2015.tar.gz?download=1",
+        "download_elapsed_seconds": 4378.98499999987,
+        "mtime_ns": 1791583791788266100
+      }
+    }
+  },
+  "data_licenses": {
+    "2014": {
+      "id": "cc-by-4.0"
+    },
+    "2015": {
+      "id": "cc-by-4.0"
+    }
+  },
+  "elapsed_seconds": 183.53100000019185
+}
