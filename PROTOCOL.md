@@ -1,5 +1,7 @@
 # TorNet transfer learning experiment
 
+Scientific design recorded before execution. Submission logistics and stale status text have been removed; the experimental choices below are preserved. See [RESULTS.md](RESULTS.md) for completion and measured outcomes. All implementation code is in [tornet_study.ipynb](tornet_study.ipynb).
+
 Use the pretrained TorNet CNN to classify tornado presence in a radar observation, then test three small adaptations that could improve detection of non-tornadic lookalikes. The central temporal hypothesis is that averaging the current scan's features with those from roughly five minutes earlier suppresses transient false alarms. This is a retrospective detection study; the target is tornado presence at the current scan, not a tornado five minutes in the future.
 
 Meteorologists and warning researchers benefit from understanding which adaptations improve discrimination while preserving tornado recall. The educational value is a clear comparison with identifiable causes, including adaptations that may perform worse.
@@ -75,32 +77,6 @@ Report AP, precision, recall, F1, confusion counts, overall false-positive rate 
 
 The first single-year grouped-split attempt was genuinely unsuitable: its training set had only 599 clips, while validation contained 1,269; test contained only 17 TOR-category clips. Large storms dominated individual folds. This failed development attempt motivated additional years and explicit metadata stratification. The source-partition audit also uncovered shared episode IDs. These are documented data-design findings, not failed trained models.
 
-For any less successful trained adaptation, explain its intended benefit, observed validation result, plausible mechanism and the resulting decision. For temporal averaging, inspect correctly and incorrectly classified transitions; for warning weighting, compare misses with warning false alarms; for the MLP, compare training and validation curves across seeds. The pooled representation can also combine channel maxima from different radar locations; compare the unchanged CNN to see whether this reduction loses useful local relationships. These are hypotheses to investigate, not fabricated findings. If every planned adaptation improves, report the genuine grouped-split failure with its recorded counts, or another actual development failure, as the assignment permits.
+For any less successful trained adaptation, explain its intended benefit, observed validation result, plausible mechanism and the resulting decision. For temporal averaging, inspect correctly and incorrectly classified transitions; for warning weighting, compare misses with warning false alarms; for the MLP, compare training and validation curves across seeds. The pooled representation can also combine channel maxima from different radar locations; compare the unchanged CNN to see whether this reduction loses useful local relationships. These are hypotheses to investigate, not fabricated findings.
 
-The notebook should contain the data/label audit, twelve-run comparison table, training and validation curves, precision-recall curves, final confusion matrix and examples of true positives, false positives and false negatives. Select example cases with a declared rule, such as highest-confidence errors and a seeded positive example. Do not choose showcase images as evidence of average performance. The 3–4 page report can allocate one page each to problem/data/model, controlled experiments, results/error analysis, and final decision/limitations/references.
-
-## Work plan and team understanding
-
-Finish data acquisition and QA first, then feature extraction and the baseline, then the three experiments, then lock and test the final decision, and finally write the report and execute the notebook. The two annual archives total about 32 GB, although this study uses only their selected source-test files. Extract only manifest files and retain source checksums. Reserve time before October 14 for explaining results and resolving notebook or packaging failures.
-
-Both teammates should inspect labels, agree on split and metric choices, and run at least one configuration. Review each other's run logs together and explain the entire pipeline back to each other. Rotate presentation sections during rehearsal. Keep contribution statements and peer evaluations grounded in what each person actually did; this plan is not evidence of completed teamwork.
-
-## Proposal text
-
-**Problem:** Can small adaptations of a pretrained radar CNN improve tornado-presence classification while distinguishing non-tornadic warning lookalikes? Warning researchers benefit from evidence about false alarms and missed tornado cases.
-
-**Dataset and model:** MIT TorNet v1.1, a cleaned subset of 2014–2015 held-out catalog records, and the public pretrained TorNet CNN. The model matches the native radar inputs, allowing rapid repeated training of new prediction heads. We compare a single-scan linear baseline with temporal averaging, hard-negative weighting and a nonlinear head, using grouped train/validation/test sets and validation-driven final selection.
-
-**Scope:** Retrospective tornado detection in supplied radar crops. Selected cases, correlated scans, limited independent storm days and uncertain checkpoint provenance limit operational claims.
-
-## Current status
-
-The catalog and checkpoint are downloaded and inspected, and the reproducible split generator is implemented. This document and configuration describe planned training. Annual radar archives, actual frame-label QA, inference validation, feature extraction, adaptation fits and final test evaluation have **not** been completed for this TorNet study. Previously completed project artifacts remain separate.
-
-Rebuild the catalog plan from the workspace with:
-
-```powershell
-.\.venv\Scripts\python.exe study_tornado/design_study.py
-```
-
-The generated census records Python, NumPy and pandas versions, together with the catalog, manifest, configuration and checkpoint SHA-256 hashes. Record the complete model-training environment when those runs occur.
+The notebook should contain the data/label audit, twelve-run comparison table, training and validation curves, precision-recall curves, final confusion matrix and examples of true positives, false positives and false negatives. Select example cases with a declared rule, such as highest-confidence errors and a seeded positive example. Do not choose showcase images as evidence of average performance.
