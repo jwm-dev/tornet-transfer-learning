@@ -1,20 +1,39 @@
 # Local runtimes and transient files
 .venv/
+.study_runtime/
 __pycache__/
 *.pyc
 .pytest_cache/
 .ipynb_checkpoints/
 tmp/
+*.part
 .env
 .env.*
 !.env.example
 
-# Large original radar payloads; keep checksum/metadata receipts
+# Public inputs restored at recorded revisions and SHA-256 hashes by the notebook
+design/catalog.csv
+probe/
+
+# Original radar payloads and generated acquisition diagnostics
 data/netcdf/
 data/archives/*.tar.gz
-data/archives/*.part
+data/archives/*.verified.json
 data/archives/*.chunk
 data/archives/*.chunks/
+data/download_progress.json
+data/endpoint_throughput_probe.json
+data/extraction_log.json
+data/first_sample.json
+data/provisional_sample.json
+data/warning_metadata_forensic_summary.json
 
-# The repository already includes the unpacked deliverables
-output/*.zip
+# Regenerable outputs and packaging
+output/
+results/figures/
+results/feature_provenance.json
+results/validation_metrics.json
+results/experiment_log.csv
+results/pipeline_events.jsonl
+results/pilot_timing.json
+requirements_lock.txt

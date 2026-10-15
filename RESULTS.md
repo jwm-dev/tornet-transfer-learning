@@ -43,15 +43,11 @@ The final set contains 1,422 clips in only 10 storm groups. Paired storm-group b
 
 Measured feature extraction: 201.0 seconds. Longest individual head fit: 1.5 seconds. These timings exclude downloading the two full archives (32.46 GB decimal) and include no claim about a production system.
 
-The example figure uses the highest-scoring false positive, lowest-scoring false negative, and one seeded correct positive when those cases exist. Selection occurred after the final result was sealed; examples did not drive training decisions.
-
 Limitations: current tornado detection, not advance forecasting; retrospective event-centered crops; two years and few independent storm groups; selected-case prevalence; uncertain warning labels; source-training exclusion relies on documented authors' practice rather than checkpoint sample metadata; other episodes on the same weather days may have been in pretraining. Class-weighted sigmoid scores are not calibrated tornado probabilities.
 
 In the predeclared pool, 1,667/6,414 clips share a terminal calendar date with authors' source-training records (21/79 dates). This is date overlap, not evidence of duplicate samples or necessarily the same weather system; it limits claims about backbone exposure.
 
-The committed pre-run configuration remains unchanged, including its historical planning status. Completion is documented by data_audit.json, feature_provenance.json, all twelve run rows, final_decision.json and final_test.json.
-
-This is a technical study draft for team review. It does not supply signatures, personal contribution claims or peer evaluations. Both students must review the code and reasoning before submitting the report.
+The committed pre-run configuration remains unchanged, including its historical planning status. Completion is documented by [the data audit](results/data_audit.json), [feature provenance](data/feature_provenance.json), [all twelve runs](results/run_summary.csv), [the locked decision](results/final_decision.json), and [final test results](results/final_test.json). The complete implementation, charts, verification, and tests are in [tornet_study.ipynb](tornet_study.ipynb).
 
 Sources and attribution:
 

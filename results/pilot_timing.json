@@ -1,8 +1,0 @@
-{
-  "configuration": "baseline",
-  "seed": 42,
-  "runtime_seconds": 1.525045600021258,
-  "limit_seconds": 600,
-  "passed": true,
-  "reused_as_actual_run": true
-}

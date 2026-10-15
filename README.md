@@ -1,23 +1,112 @@
-# Executed TorNet transfer-learning study
+# TorNet transfer learning
 
-Completed all twelve real-data fits, validation selection and one sealed final-test evaluation. The selected adaptation is **Two-scan mean / linear**. See [RESULTS.md](RESULTS.md) for measured comparisons, errors and limitations, [project.ipynb](project.ipynb) for executed outputs, and [the report](output/pdf/tornet_report.pdf).
+**Does five minutes of radar history help detect a tornado in the current scan?**
 
-Run from this directory with the isolated study Python:
+This experiment freezes the pretrained TorNet radar CNN and compares four small
+prediction heads across three seeds. It uses **6,414 radar clips from 2014–2015**,
+split by storm groups to keep related observations together.
 
-```powershell
-.\.venv\Scripts\python.exe run_study.py
+**The result:** two-scan averaging won validation and modestly improved test
+ranking, but produced roughly twice as many false positives as the original CNN
+at the chosen thresholds. The experiment does not establish an operational improvement.
+
+**Start with [the single notebook](tornet_study.ipynb)** for the complete code,
+saved tables and charts, verification, and tests. [RESULTS.md](RESULTS.md) has
+the detailed findings; [SETUP.md](SETUP.md) explains how to run it.
+
+## How it works
+
+```mermaid
+flowchart TD
+    A["Current radar scan"]
+    P["Previous scan<br/>About 5 minutes earlier"]
+    B["Same pretrained TorNet CNN<br/>Frozen weights; 384 features per scan"]
+    C["Scale both vectors, then average<br/>Scaler fitted on current training features"]
+    E["3 linear heads, one per seed<br/>385 trainable parameters each"]
+    F["Average 3 heads' scores<br/>Validation-selected threshold"]
+    G["Tornado present in current scan?"]
+    A --> B
+    P --> B
+    B --> C --> E --> F --> G
 ```
 
-The runner verifies and reuses complete data, feature, training and sealed test artifacts. It will reject changed locked inputs. Fresh experiments belong in a separate study copy; keep this final holdout intact. The unchanged pre-run design is in [PROTOCOL.md](PROTOCOL.md), [planned_config.json](planned_config.json), and design/planned_manifest.csv. Its historical planning status is intentionally preserved for auditability.
+Each scan contains six radar variables at two elevation tilts. Only the small head
+is trained. Averaging the features tests persistence and smoothing rather than
+learning a storm trajectory.
 
-Official archive downloads total 32.46 GB. The shareable bundle excludes archives, raw radar files and virtual environments; it includes features, trained heads, manifests, provenance and the public checkpoint. Cached result inspection works without downloading radar archives. Re-extracting features or rebuilding raw-radar example figures requires the verified archives and selected files.
+## What the experiment found
 
-Install the recorded dependencies in Python 3.11 and use KERAS_BACKEND=torch. For this RTX 5060 Ti, PyTorch 2.8.0 uses the CUDA 12.8 wheel index https://download.pytorch.org/whl/cu128. The bundle includes the pinned authors' upstream/tornet source package; its commit is 92d9d97bbd174be2e5cea4896c62208c5be7900d. Full requirements and checkpoint revision are recorded.
+Every row changes one factor from the current-scan linear baseline. AP is average
+precision: it measures ranking across thresholds, and higher is better.
 
-For an external Jupyter installation, register the kernel from your own study environment before opening the notebook:
+| Adaptation | Mean validation AP ± seed SD | Head parameters |
+| --- | ---: | ---: |
+| Current scan / linear | 0.658 ± 0.005 | 385 |
+| **Two-scan mean / linear — selected** | **0.675 ± 0.001** | **385** |
+| Double warning-negative loss weight | 0.656 ± 0.005 | 385 |
+| Current scan / 64-unit MLP | 0.670 ± 0.007 | 24,705 |
 
-```powershell
-.\.venv\Scripts\python.exe -m ipykernel install --user --name tornet-study --display-name "TorNet study"
-```
+The configuration and each model's threshold were chosen on validation, then
+locked before testing. Test results cover **1,422 clips, 89 positives, and 10
+storm groups**. These counts describe clips, not independent tornado events.
 
-This is current detection on retrospectively selected storm chips. It is not an operational warning system or advance tornado forecast. The technical report is a draft for both students to review. Team signatures, contributions and peer ratings must be supplied truthfully by the students.
+| Test model | AP | Precision | Recall | False positives |
+| --- | ---: | ---: | ---: | ---: |
+| Selected two-scan adaptation | 0.548 | 10.9% | 77.5% | 564 |
+| Original pretrained CNN | 0.517 | 19.8% | 76.4% | 276 |
+| Current-scan linear adaptation | 0.508 | 10.9% | 78.7% | 571 |
+
+## Biggest lessons
+
+- **Better ranking did not mean fewer false alarms.** The selected adaptation
+  detected 69 positive clips versus 68 for the original CNN, with 288 additional
+  false positives. Its AP gain was +0.031, with a descriptive paired storm-group
+  95% bootstrap interval of **[-0.061, 0.155]**. A reliable improvement is not established.
+- **A small temporal change was competitive.** Averaging two scans improved
+  validation AP with the same head size. The much larger MLP was not selected
+  under the declared rule. More capacity was not necessary for this result.
+- **Extra hard-negative weight did not help here.** It slightly reduced mean
+  validation AP and increased warning-negative false-positive rate at the recall
+  target. The differences are small; they do not establish why it failed.
+- **Audit identities and use the actual labels.** Legacy embedded warning IDs
+  initially rejected 2,325 clips. The corrected v1.1 catalog, filenames, sites,
+  and timestamps resolved grouping identity without changing labels or splits.
+  Sampling categories are not substitutes for terminal-frame labels.
+- **Accuracy hides failure when positives are rare.** Predicting no tornado gets
+  93.7% test accuracy while missing every positive clip. Use AP, precision/recall,
+  false-positive counts, and uncertainty across storm groups together.
+
+This is retrospective **current tornado detection on selected radar crops**.
+The study does not demonstrate advance forecasting or operational warning
+performance. Only two years and 10 test storm groups limit generalization;
+possible pretraining weather overlap remains. Scores are not calibrated probabilities.
+
+## Run or inspect
+
+Open [tornet_study.ipynb](tornet_study.ipynb) to read the saved outputs directly
+on GitHub. To execute it, use Python 3.11, install `requirements.txt` in a virtual
+environment, select that notebook kernel, and **Run All**. Full commands are in
+[SETUP.md](SETUP.md).
+
+Run All verifies the completed study and runs synthetic integrity tests. The
+18.8 MB public checkpoint downloads once and must match its recorded SHA-256.
+Raw-radar acquisition is opt-in; its two archives total **32.46 GB**.
+
+| Kept in the repo | Purpose |
+| --- | --- |
+| `tornet_study.ipynb` | All first-party study code, findings, plots, and tests |
+| `data/` | Aligned cached features, audited manifest, provenance, and release notices |
+| `results/` | Measured runs, trained heads, locked decision, and saved predictions |
+| `design/`, `planned_config.json`, [PROTOCOL.md](PROTOCOL.md) | Split evidence and scientific design |
+| `upstream/`, `upstream_revision.txt` | Required authors' loader/Keras code and MIT license |
+
+## Sources
+
+Built on the [TorNet paper](https://arxiv.org/abs/2401.16437),
+[MIT Lincoln Laboratory's code](https://github.com/mit-ll/tornet),
+[public pretrained CNN](https://huggingface.co/tornet-ml/tornado_detector_baseline_v1),
+and official v1.1 [catalog](https://zenodo.org/records/12636522),
+[2014 data](https://zenodo.org/records/12637032), and
+[2015 data](https://zenodo.org/records/12655151). Software attribution and licensing
+are retained in [upstream/LICENSE](upstream/LICENSE); original dataset release
+notices and licenses are retained in `data/archives/*_zenodo_metadata.json`.

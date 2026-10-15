@@ -1,2 +1,5 @@
 # Preserve exact bytes required by the sealed study SHA-256 receipts.
 * -text
+# Prose and notebook JSON can use normal LF text handling.
+*.md text eol=lf
+*.ipynb text eol=lf
